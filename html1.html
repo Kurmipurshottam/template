@@ -3,292 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethylene Optimization</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Toggle Input/Output</title>
     <style>
         body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            background-color: #0056b3;
-            color: #ffffff;
-            padding: 15px;
+            font-family: Arial, sans-serif;
+            margin: 20px;
             text-align: center;
-            border-bottom: 2px solid #ffffff;
         }
-        .header img {
-            height: 50px;
+        #input-section, #output-section {
+            display: none;
+            margin-top: 20px;
         }
-        .buttons {
-            text-align: center;
-            margin: 20px 0;
+        #input-section h2, #output-section h2 {
+            margin-bottom: 10px;
         }
-        .main-tabs {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
         }
-        .tab-content {
-            flex: 1;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            overflow: auto;
-        }
-        .nav-tabs .nav-link {
-            background-color: #e9ecef;
-            border: 1px solid #dee2e6;
-            color: #495057;
-            padding: 12px 20px;
-            border-radius: 8px 8px 0 0;
-            font-weight: 500;
-        }
-        .nav-tabs .nav-link.active {
+        button:hover {
             background-color: #0056b3;
-            color: #ffffff;
-            border-bottom: 2px solid transparent;
-            border-radius: 8px 8px 0 0;
         }
-        .input-tab, .output-tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-            height: calc(100vh - 200px);
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
         }
-        .table-responsive {
-            max-height: 100%;
-            overflow-y: auto;
-            width: 100%; /* Make sure the table fits within the container */
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
         }
-        .table {
-            margin: 0 auto; /* Center table horizontally */
-        }
-        .table-bordered th, .table-bordered td {
-            border: 1px solid #dee2e6;
-        }
-        .table th {
-            background-color: #f1f1f1;
+        th {
+            background-color: #f4f4f4;
             color: #333;
         }
-        .table-sm th, .table-sm td {
-            padding: 12px;
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
-        .input-group-text {
+        tr:hover {
             background-color: #f1f1f1;
-            border-color: #ced4da;
         }
-        .input-group input {
-            max-width: 160px;
-        }
-        #fileUpload {
-            display: none;
+        thead th {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header with Logo -->
-    <div class="header">
-        <img src="path/to/logo.png" alt="Logo">
-        <h1>Ethylene Optimization</h1>
+    <div id="input-section">
+        <h2>Input Label</h2>
+        <p>This is the input data.</p>
+        <h1>Editable Table Example</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td contenteditable="true">Mark</td>
+                    <td contenteditable="true">Otto</td>
+                    <td contenteditable="true">@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td contenteditable="true">Jacob</td>
+                    <td contenteditable="true">Thornton</td>
+                    <td contenteditable="true">@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td contenteditable="true">Larry</td>
+                    <td contenteditable="true">Bird</td>
+                    <td contenteditable="true">@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td contenteditable="true">John</td>
+                    <td contenteditable="true">Doe</td>
+                    <td contenteditable="true">@johndoe</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td contenteditable="true">Jane</td>
+                    <td contenteditable="true">Smith</td>
+                    <td contenteditable="true">@janesmith</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td contenteditable="true">Michael</td>
+                    <td contenteditable="true">Johnson</td>
+                    <td contenteditable="true">@mjohnson</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td contenteditable="true">Emily</td>
+                    <td contenteditable="true">Brown</td>
+                    <td contenteditable="true">@ebrown</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td contenteditable="true">Chris</td>
+                    <td contenteditable="true">Williams</td>
+                    <td contenteditable="true">@cwilliams</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td contenteditable="true">Alice</td>
+                    <td contenteditable="true">Wilson</td>
+                    <td contenteditable="true">@awilson</td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td contenteditable="true">David</td>
+                    <td contenteditable="true">Lee</td>
+                    <td contenteditable="true">@dlee</td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="showOutput()">Show Output</button>
     </div>
 
-    <!-- Buttons and Date Range -->
-    <div class="buttons">
-        <div class="row">
-            <div class="col-12 mb-3">
-                <button class="btn btn-primary btn-large" id="reloadInputsBtn">Re-Load Inputs</button>
-                <input type="file" id="fileUpload" accept=".csv, .xlsx">
-            </div>
-            <div class="col-12 mb-3">
-                <label for="startDate" class="form-label">Optimization Window</label>
-                <div class="input-group justify-content-center">
-                    <input type="date" class="form-control" id="startDate" value="2024-07-20">
-                    <span class="input-group-text">to</span>
-                    <input type="date" class="form-control" id="endDate" value="2024-08-31">
-                </div>
-            </div>
-            <div class="col-12 mb-3">
-                <button class="btn btn-warning btn-large">Run Optimization</button>
-                <button class="btn btn-success btn-large">Download Results</button>
-            </div>
-        </div>
+    <div id="output-section">
+        <h2>Output Label</h2>
+        <p>This is the output data.</p>
+        <h1>Editable Table Example</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td contenteditable="true">Mark</td>
+                    <td contenteditable="true">Otto</td>
+                    <td contenteditable="true">@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td contenteditable="true">Jacob</td>
+                    <td contenteditable="true">Thornton</td>
+                    <td contenteditable="true">@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td contenteditable="true">Larry</td>
+                    <td contenteditable="true">Bird</td>
+                    <td contenteditable="true">@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td contenteditable="true">John</td>
+                    <td contenteditable="true">Doe</td>
+                    <td contenteditable="true">@johndoe</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td contenteditable="true">Jane</td>
+                    <td contenteditable="true">Smith</td>
+                    <td contenteditable="true">@janesmith</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td contenteditable="true">Michael</td>
+                    <td contenteditable="true">Johnson</td>
+                    <td contenteditable="true">@mjohnson</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td contenteditable="true">Emily</td>
+                    <td contenteditable="true">Brown</td>
+                    <td contenteditable="true">@ebrown</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td contenteditable="true">Chris</td>
+                    <td contenteditable="true">Williams</td>
+                    <td contenteditable="true">@cwilliams</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td contenteditable="true">Alice</td>
+                    <td contenteditable="true">Wilson</td>
+                    <td contenteditable="true">@awilson</td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td contenteditable="true">David</td>
+                    <td contenteditable="true">Lee</td>
+                    <td contenteditable="true">@dlee</td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="showInput()">Show Input</button>
     </div>
 
-    <!-- Main Tabs -->
-    <div class="main-tabs">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-6 text-center">
-                    <ul class="nav nav-tabs mb-4" id="mainTabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#input">Input</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#output">Output</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <script>
+        function showInput() {
+            document.getElementById('input-section').style.display = 'block';
+            document.getElementById('output-section').style.display = 'none';
+        }
 
-        <!-- Main Tab Content -->
-        <div class="tab-content">
-            <!-- Input Tab -->
-            <div class="tab-pane fade show active input-tab" id="input">
-                <ul class="nav nav-tabs mb-4" id="inputSubTabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#consumers">Consumers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#producers">Producers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#network">Network</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#mtop">MTOP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#transportation-rates">Transportation Rates</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#storage">Storage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#prices">Prices</a>
-                    </li>
-                </ul>
+        function showOutput() {
+            document.getElementById('input-section').style.display = 'none';
+            document.getElementById('output-section').style.display = 'block';
+        }
 
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="consumers">
-                        <!-- Consumers Content -->
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-sm text-center">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Poly</th>
-                                        <th>Styrene</th>
-                                        <th>LCSouth</th>
-                                        <th>LCNorth</th>
-                                        <th>Geismar</th>
-                                        <th>Plaquemine</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2024-07-20</td>
-                                        <td>4.199</td>
-                                        <td>0.345</td>
-                                        <td>1.320</td>
-                                        <td>1.258</td>
-                                        <td>1.221</td>
-                                        <td>0.893</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2024-07-21</td>
-                                        <td>4.307</td>
-                                        <td>0.345</td>
-                                        <td>1.062</td>
-                                        <td>1.259</td>
-                                        <td>1.051</td>
-                                        <td>0.742</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2024-07-22</td>
-                                        <td>4.101</td>
-                                        <td>0.345</td>
-                                        <td>2.311</td>
-                                        <td>1.259</td>
-                                        <td>1.117</td>
-                                        <td>2.133</td>
-                                    </tr>
-                                    <!-- Add more rows as needed -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-pane fade" id="producers">
-                        <p>Producers content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="network">
-                        <p>Network content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="mtop">
-                        <p>MTOP content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="transportation-rates">
-                        <p>Transportation Rates content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="storage">
-                        <p>Storage content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="prices">
-                        <p>Prices content goes here...</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Output Tab -->
-            <div class="tab-pane fade output-tab" id="output">
-                <ul class="nav nav-tabs mb-4" id="outputSubTabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#consumer-output">Consumer Output</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#producer-output">Producer Output</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#network-output">Network Output</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#storage-output">Storage Output</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#price-output">Price Output</a>
-                    </li>
-                </ul>
-
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="consumer-output">
-                        <p>Consumer Output content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="producer-output">
-                        <p>Producer Output content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="network-output">
-                        <p>Network Output content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="storage-output">
-                        <p>Storage Output content goes here...</p>
-                    </div>
-
-                    <div class="tab-pane fade" id="price-output">
-                        <p>Price Output content goes here...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        // Initially show the input section
+        showInput();
+    </script>
 </body>
 </html>
